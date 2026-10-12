@@ -32,36 +32,20 @@ used isolated temporary runtime state because the cloud machine's normal Codex
 runtime directory is read-only; no model session or skill workflow was started.
 All 78 copied payload files also matched the pinned source byte-for-byte.
 
-## Reference submodule
+## Reference material
 
-- Source: https://github.com/Ergasti/shopify-sections
-- Location: `references/shopify-sections/`
-- Pinned commit: `debf10d7a28524d5fb1c80b08e60b5d04e458438`
-- `.gitmodules` records the source; the parent Git index records the exact commit.
-
-To initialize this reference checkout in a future clone, run from the repository root:
-
-```sh
-git submodule update --init -- references/shopify-sections
-git submodule status -- references/shopify-sections
-```
-
-Do not use `--remote`: reference updates require an explicit request and review.
-Do not copy library sections into theme directories without explicit approval.
+No reference repository or Git submodule is included. The previously proposed
+sections library was removed at the user's request because its contents have
+mixed licensing. Its checkout, Git submodule registration, `.gitmodules`, and
+cached submodule metadata have been removed from this project. It must not be
+reintroduced or imported without an explicit request and a licence review.
 
 ## Security and licensing review
 
 This is a limited source inspection, not a complete security audit.
 
-- The sections repository's root licence is MIT, but its README explicitly says
-  individual sources may have different licences. Multiple Section Lab folders
-  describe paid material as "internal use only" and "Do not redistribute."
-  Public availability does not establish reuse rights. Check the relevant
-  purchase terms, original source, and attribution before any future import.
-- Some sections load external CDN scripts (including Swiper), call cart APIs,
-  or insert HTML with `innerHTML`. Review versions, script integrity, data
-  escaping, privacy, accessibility, and performance before adaptation. Shipping
-  API tools are also present; do not run them or provide credentials during setup.
+- The installed skill is MIT-licensed. Its complete `LICENSE` file is retained;
+  preserve the copyright and permission notice in copies or substantial portions.
 - The builder contains broad workflow instructions, scaffold-copying phases,
   companion-skill references, and cleanup guidance. They are optional third-party
   guidance and do not override the current scope or the project's rules. Its
