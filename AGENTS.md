@@ -15,12 +15,15 @@ This repository is the Goose in Shoes Shopify storefront.
 - Avoid generic dropshipping and generic Shopify aesthetics.
 - The visual goal is a distinctive premium, warm, and playful editorial brand.
 
-## Current setup boundary
+## Current implementation boundary
 
-The storefront has not been built. Wait for the user's explicit approval before
-proceeding beyond AI development setup. Do not scaffold a storefront, install
-Theme Lab, Dawn, or another base theme, or alter production theme code as part
-of this setup. Do not deploy, push to Shopify, or merge this setup into main.
+The user has approved the native Online Store 2.0 homepage, shared announcement,
+header and footer, responsive behaviour, and Theme Editor controls. Use standard
+JSON templates, sections, section blocks and snippets. Preserve the supplied brand
+artwork and the warm editorial design described in `references/README.md`.
+Keep product photography and unsupplied product/policy information provisional.
+Final product detail page design is outside the current scope. Do not replace the
+base theme, deploy to a store, or merge into main without a subsequent request.
 
 Cloud tasks already run in an isolated environment. Use the existing checkout;
 do not create a Git worktree unless the user explicitly requests one.

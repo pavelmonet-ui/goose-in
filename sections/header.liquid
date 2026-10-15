@@ -1,0 +1,67 @@
+<header class="site-header page-width">
+  <a class="brand-link" href="{{ routes.root_url }}" aria-label="{{ section.settings.brand_name | escape }}">
+    {% if section.settings.logo != blank %}
+      {{ section.settings.logo | image_url: width: 360 | image_tag: class: 'custom-logo', widths: '180, 360', sizes: '150px', alt: section.settings.brand_name }}
+    {% else %}
+      {% render 'brand-artwork', variant: 'wordmark' %}
+    {% endif %}
+  </a>
+  <nav class="site-nav" aria-label="{{ 'accessibility.main_navigation' | t }}">
+    <a href="{% if section.settings.shop_link != blank %}{{ section.settings.shop_link }}{% else %}{{ routes.root_url }}#the-collection{% endif %}">{{ section.settings.shop_label | escape }}</a>
+    <a href="{% if section.settings.story_link != blank %}{{ section.settings.story_link }}{% else %}{{ routes.root_url }}#our-story{% endif %}">{{ section.settings.story_label | escape }}</a>
+  </nav>
+  <a class="bag-link" href="{{ routes.cart_url }}">{{ section.settings.bag_label | escape }} <span class="bag-count">({{ cart.item_count }})</span></a>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo override"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name",
+      "default": "Goose in Shoes"
+    },
+    {
+      "type": "text",
+      "id": "shop_label",
+      "label": "Shop label",
+      "default": "Shop"
+    },
+    {
+      "type": "url",
+      "id": "shop_link",
+      "label": "Shop link (defaults to homepage collection)"
+    },
+    {
+      "type": "text",
+      "id": "story_label",
+      "label": "Story label",
+      "default": "Our story"
+    },
+    {
+      "type": "url",
+      "id": "story_link",
+      "label": "Story link (defaults to homepage craftsmanship)"
+    },
+    {
+      "type": "text",
+      "id": "bag_label",
+      "label": "Bag label",
+      "default": "Bag"
+    }
+  ],
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  }
+}
+{% endschema %}

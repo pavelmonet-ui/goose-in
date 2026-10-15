@@ -1,0 +1,170 @@
+<div class="product-edit page-width section-space" id="the-collection">
+  <div class="section-heading" data-reveal>
+    <p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <h2>{{ section.settings.heading | escape | newline_to_br }}</h2>
+    {% if section.settings.text != blank %}<div class="rte">{{ section.settings.text }}</div>{% endif %}
+  </div>
+  <div class="editorial-products">
+    {% for block in section.blocks %}
+      {% render 'editorial-product', block: block, index: forloop.index, show_prices: section.settings.show_prices, link_label: section.settings.link_label, placeholder_caption: section.settings.placeholder_caption, from_label: section.settings.from_label, sold_out_label: section.settings.sold_out_label %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "The four models",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The collection / 01—04"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Four pairs.\nOne lovely dilemma."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Introduction",
+      "default": "<p>A small collection. Room for a favourite.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_prices",
+      "label": "Show product prices",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "from_label",
+      "label": "Variable price prefix",
+      "default": "From"
+    },
+    {
+      "type": "text",
+      "id": "sold_out_label",
+      "label": "Sold out label",
+      "default": "Sold out"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Product link label",
+      "default": "Take a closer look"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_caption",
+      "label": "Placeholder caption",
+      "default": "Image placeholder"
+    }
+  ],
+  "max_blocks": 4,
+  "enabled_on": {
+    "templates": [
+      "index"
+    ]
+  },
+  "blocks": [
+    {
+      "type": "model",
+      "name": "Model",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Editorial image override"
+        },
+        {
+          "type": "image_picker",
+          "id": "hover_image",
+          "label": "Second image on hover (optional)"
+        },
+        {
+          "type": "text",
+          "id": "placeholder_name",
+          "label": "Placeholder label",
+          "default": "Model 01"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Short editorial caption",
+          "default": "Short model note to come."
+        },
+        {
+          "type": "select",
+          "id": "tone",
+          "label": "Image background",
+          "options": [
+            {
+              "value": "sand",
+              "label": "Sand"
+            },
+            {
+              "value": "sage",
+              "label": "Soft olive"
+            },
+            {
+              "value": "blue",
+              "label": "Pale blue"
+            },
+            {
+              "value": "rose",
+              "label": "Dusty rose"
+            }
+          ],
+          "default": "sand"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "The four models",
+      "blocks": [
+        {
+          "type": "model",
+          "settings": {
+            "placeholder_name": "Model 01",
+            "tone": "sand"
+          }
+        },
+        {
+          "type": "model",
+          "settings": {
+            "placeholder_name": "Model 02",
+            "tone": "sage"
+          }
+        },
+        {
+          "type": "model",
+          "settings": {
+            "placeholder_name": "Model 03",
+            "tone": "blue"
+          }
+        },
+        {
+          "type": "model",
+          "settings": {
+            "placeholder_name": "Model 04",
+            "tone": "rose"
+          }
+        }
+      ]
+    }
+  ],
+  "limit": 1
+}
+{% endschema %}

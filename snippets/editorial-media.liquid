@@ -1,0 +1,27 @@
+{% doc %}
+  Responsive merchant photography with an explicitly provisional illustration fallback.
+  @param {image} [image] - Merchant-selected image
+  @param {string} [kind] - product, detail, lifestyle, or gift
+  @param {boolean} [eager] - Prioritise a first-screen image
+  @param {string} [sizes] - Responsive sizes attribute
+{% enddoc %}
+{% liquid
+  assign image_loading = 'lazy'
+  assign image_priority = 'auto'
+  if eager
+    assign image_loading = 'eager'
+    assign image_priority = 'high'
+  endif
+  assign image_sizes = sizes | default: '100vw'
+%}
+{% if image != blank %}
+  {{ image | image_url: width: 2200 | image_tag: widths: '360, 540, 750, 1000, 1400, 1800, 2200', sizes: image_sizes, loading: image_loading, fetchpriority: image_priority, class: 'editorial-image' }}
+{% else %}
+  <div class="media-placeholder media-placeholder--{{ kind | default: 'detail' }}" aria-hidden="true">
+    {% if kind == 'product' or kind == 'gift' %}
+      {% render 'slipper-placeholder' %}
+    {% else %}
+      <span class="placeholder-line placeholder-line--one"></span><span class="placeholder-line placeholder-line--two"></span><span class="placeholder-line placeholder-line--three"></span>
+    {% endif %}
+  </div>
+{% endif %}

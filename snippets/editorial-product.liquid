@@ -1,0 +1,30 @@
+{% doc %}
+  An editorial model card; unassigned product slots have no fake links or prices.
+  @param {block} block - Model settings and editor attributes
+  @param {number} index - Model position
+  @param {boolean} show_prices - Display real Shopify prices
+  @param {string} link_label - Product CTA
+  @param {string} placeholder_caption - Empty photography label
+  @param {string} from_label - Variable price prefix
+  @param {string} sold_out_label - Product availability label
+{% enddoc %}
+{% liquid
+  assign model = block.settings.product
+  assign model_image = block.settings.image | default: model.featured_image
+  assign model_title = model.title | default: block.settings.placeholder_name
+%}
+<article class="model model--{{ index }}" data-reveal {{ block.shopify_attributes }}>
+  {% if model != blank %}<a class="model__link" href="{{ model.url }}">{% endif %}
+  <div class="model__image media-frame tone-{{ block.settings.tone }}{% if block.settings.hover_image != blank and model_image != blank %} has-hover-image{% endif %}">
+    <span class="model__number" aria-hidden="true">/ 0{{ index }}</span>
+    {% render 'editorial-media', image: model_image, kind: 'product', sizes: '(min-width: 900px) 45vw, 100vw' %}
+    {% if model_image == blank %}<span class="media-caption">{{ placeholder_caption | escape }}</span>{% endif %}
+    {% if block.settings.hover_image != blank and model_image != blank %}
+      {{ block.settings.hover_image | image_url: width: 1400 | image_tag: widths: '360, 540, 750, 1000, 1400', sizes: '(min-width: 900px) 45vw, 100vw', class: 'model__hover-image', loading: 'lazy', alt: '' }}
+    {% endif %}
+  </div>
+  <div class="model__info"><h3>{{ model_title | escape }}</h3>{% if model != blank and show_prices %}<span class="model__price">{% if model.price_varies %}{{ from_label | escape }} {% endif %}{{ model.price | money }}</span>{% endif %}</div>
+  {% if block.settings.caption != blank %}<p class="model__caption">{{ block.settings.caption | escape }}</p>{% endif %}
+  {% if model != blank %}<span class="model__cta">{% unless model.available %}{{ sold_out_label | escape }} · {% endunless %}{{ link_label | escape }} <span aria-hidden="true">{% render 'icon-arrow' %}</span></span>{% endif %}
+  {% if model != blank %}</a>{% endif %}
+</article>

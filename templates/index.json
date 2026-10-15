@@ -1,0 +1,189 @@
+{
+  "sections": {
+    "hero": {
+      "type": "editorial-hero",
+      "settings": {
+        "tone": "cream"
+      }
+    },
+    "models": {
+      "type": "editorial-products",
+      "settings": {},
+      "blocks": {
+        "model_1": {
+          "type": "model",
+          "settings": {
+            "placeholder_name": "Model 01",
+            "tone": "sand"
+          }
+        },
+        "model_2": {
+          "type": "model",
+          "settings": {
+            "placeholder_name": "Model 02",
+            "tone": "sage"
+          }
+        },
+        "model_3": {
+          "type": "model",
+          "settings": {
+            "placeholder_name": "Model 03",
+            "tone": "blue"
+          }
+        },
+        "model_4": {
+          "type": "model",
+          "settings": {
+            "placeholder_name": "Model 04",
+            "tone": "rose"
+          }
+        }
+      },
+      "block_order": [
+        "model_1",
+        "model_2",
+        "model_3",
+        "model_4"
+      ]
+    },
+    "craft": {
+      "type": "craftsmanship",
+      "settings": {
+        "tone": "sand"
+      },
+      "blocks": {
+        "materials": {
+          "type": "detail",
+          "settings": {
+            "heading": "Materials"
+          }
+        },
+        "construction": {
+          "type": "detail",
+          "settings": {
+            "heading": "Construction"
+          }
+        }
+      },
+      "block_order": [
+        "materials",
+        "construction"
+      ]
+    },
+    "moments": {
+      "type": "lifestyle",
+      "settings": {},
+      "blocks": {
+        "morning": {
+          "type": "moment",
+          "settings": {
+            "eyebrow": "01 / A slow start",
+            "heading": "Before the day begins.",
+            "text": "<p>The first cup. A quiet room. A moment that’s only yours.</p>"
+          }
+        },
+        "evening": {
+          "type": "moment",
+          "settings": {
+            "eyebrow": "02 / Back to yourself",
+            "heading": "Nowhere else to be.",
+            "text": "<p>Shoes off. The day, gently put down.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "morning",
+        "evening"
+      ]
+    },
+    "gifting": {
+      "type": "gifting",
+      "settings": {
+        "tone": "sage"
+      },
+      "blocks": {
+        "recipient_1": {
+          "type": "recipient",
+          "settings": {
+            "text": "For your mum"
+          }
+        },
+        "recipient_2": {
+          "type": "recipient",
+          "settings": {
+            "text": "For your sister"
+          }
+        },
+        "recipient_3": {
+          "type": "recipient",
+          "settings": {
+            "text": "For your partner"
+          }
+        },
+        "recipient_4": {
+          "type": "recipient",
+          "settings": {
+            "text": "For someone you love"
+          }
+        },
+        "recipient_5": {
+          "type": "recipient",
+          "settings": {
+            "text": "Or just for yourself."
+          }
+        }
+      },
+      "block_order": [
+        "recipient_1",
+        "recipient_2",
+        "recipient_3",
+        "recipient_4",
+        "recipient_5"
+      ]
+    },
+    "details": {
+      "type": "purchase-reassurance",
+      "settings": {},
+      "blocks": {
+        "sizing": {
+          "type": "answer",
+          "settings": {
+            "heading": "Sizing"
+          }
+        },
+        "care": {
+          "type": "answer",
+          "settings": {
+            "heading": "Care"
+          }
+        },
+        "delivery": {
+          "type": "answer",
+          "settings": {
+            "heading": "Delivery"
+          }
+        },
+        "returns": {
+          "type": "answer",
+          "settings": {
+            "heading": "Returns"
+          }
+        }
+      },
+      "block_order": [
+        "sizing",
+        "care",
+        "delivery",
+        "returns"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "models",
+    "craft",
+    "moments",
+    "gifting",
+    "details"
+  ]
+}

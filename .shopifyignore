@@ -11,3 +11,14 @@
 #
 # Ignore templates and sections with a regular expression:
 #   /(templates|sections)/.*\.json/
+
+# Repository-only documentation, references and development resources
+references/**
+.agents/**
+.github/**
+AGENTS.md
+AI_SETUP.md
+README.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+HOMEPAGE_IMPLEMENTATION.md

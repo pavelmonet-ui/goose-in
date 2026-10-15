@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ request.locale.iso_code }}">
   <head>
+    {% render 'meta-tags' %}
     {% # Inlined CSS Variables %}
     {% render 'css-variables' %}
 
@@ -21,23 +22,19 @@
     {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
 
-    {% # Social, title, etc. %}
-    {% render 'meta-tags' %}
+    <script src="{{ 'editorial.js' | asset_url }}" defer></script>
 
     {{ content_for_header }}
   </head>
 
-  <body>
-    {% block 'container', tag: 'div' %}
-      {% block 'header' -%}{%- endblock %}
-    {% endblock %}
+  <body class="template-{{ request.page_type | handle }}"{% if settings.enable_reveals %} data-reveals-enabled{% endif %}>
+    <a class="skip-link" href="#MainContent">{{ 'accessibility.skip_to_content' | t }}</a>
+    {% sections 'header-group' %}
 
-    <main>
+    <main id="MainContent" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
-    {% block 'container', tag: 'div' %}
-      {% block 'footer' -%}{%- endblock %}
-    {% endblock %}
+    {% sections 'footer-group' %}
   </body>
 </html>

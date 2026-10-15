@@ -1,9 +1,9 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Skeleton",
-    "theme_version": "0.1.0",
-    "theme_author": "Shopify",
+    "theme_name": "Goose in Shoes",
+    "theme_version": "1.0.0",
+    "theme_author": "Goose in Shoes",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
   },
@@ -59,13 +59,13 @@
       {
         "type": "color",
         "id": "background_color",
-        "default": "#FFFFFF",
+        "default": "#F8F3EA",
         "label": "t:labels.background"
       },
       {
         "type": "color",
         "id": "foreground_color",
-        "default": "#333333",
+        "default": "#243A3A",
         "label": "t:labels.foreground"
       },
       {
@@ -77,6 +77,58 @@
         "unit": "px",
         "label": "t:labels.input_corner_radius",
         "default": 4
+      }
+    ]
+  },
+  {
+    "name": "Editorial style",
+    "settings": [
+      {
+        "type": "color",
+        "id": "accent_color",
+        "label": "Ink blue",
+        "default": "#075D7A"
+      },
+      {
+        "type": "color",
+        "id": "sand_color",
+        "label": "Sand",
+        "default": "#E9E1D4"
+      },
+      {
+        "type": "color",
+        "id": "sage_color",
+        "label": "Soft olive",
+        "default": "#E0E1D3"
+      },
+      {
+        "type": "color",
+        "id": "blue_color",
+        "label": "Pale blue",
+        "default": "#E1E9E9"
+      },
+      {
+        "type": "color",
+        "id": "rose_color",
+        "label": "Dusty rose",
+        "default": "#EEDFD7"
+      },
+      {
+        "type": "font_picker",
+        "id": "heading_font",
+        "label": "Editorial heading font",
+        "default": "baskerville_n4"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_reveals",
+        "label": "Enable subtle scroll reveals",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo for gift cards"
       }
     ]
   }

@@ -1,0 +1,12 @@
+{% doc %}
+  Displays the supplied brand artwork unchanged; CSS frames the wordmark or slogan.
+  @param {string} variant - wordmark, slogan, or goose
+{% enddoc %}
+{% case variant %}
+  {% when 'wordmark' %}
+    <span class="brand-crop brand-crop--wordmark" aria-hidden="true"><img src="{{ 'goose-brand-original.png' | asset_url }}" width="1536" height="1024" alt="" class="brand-crop__image"></span>
+  {% when 'slogan' %}
+    <span class="brand-crop brand-crop--slogan" aria-hidden="true"><img src="{{ 'goose-slogan-original.jpg' | asset_url }}" width="1254" height="1254" alt="" class="brand-crop__image"></span>
+  {% else %}
+    <img src="{{ 'goose-brand-original.png' | asset_url }}" width="1536" height="1024" alt="" loading="lazy">
+{% endcase %}
